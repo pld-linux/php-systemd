@@ -10,7 +10,7 @@ Version:	0.1
 Release:	1
 License:	BSD
 Group:		Development/Languages/PHP
-Source0:	https://github.com/systemd/php-systemd/archive/master/%{name}-%{version}.tar.gz
+Source0:	https://github.com/systemd/php-systemd/archive/master/php-%{modname}-%{version}.tar.gz
 # Source0-md5:	d77898dc3aabc15b94a7a40839c6ff7b
 URL:		https://github.com/systemd/php-systemd
 %{?with_tests:BuildRequires:    %{php_name}-cli}
