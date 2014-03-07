@@ -6,12 +6,12 @@
 %define		modname		systemd
 Summary:	PHP extension allowing native interaction with systemd and its journal
 Name:		%{php_name}-%{modname}
-Version:	0.1
+Version:	0.1.1
 Release:	1
 License:	BSD
 Group:		Development/Languages/PHP
-Source0:	https://github.com/systemd/php-systemd/archive/master/php-%{modname}-%{version}.tar.gz
-# Source0-md5:	d77898dc3aabc15b94a7a40839c6ff7b
+Source0:	https://github.com/systemd/php-systemd/archive/release-%{version}/php-%{modname}-%{version}.tar.gz
+# Source0-md5:	59faace93633f40a149fd5b00cc318cf
 URL:		https://github.com/systemd/php-systemd
 %{?with_tests:BuildRequires:    %{php_name}-cli}
 BuildRequires:	%{php_name}-devel
