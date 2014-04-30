@@ -7,7 +7,7 @@
 Summary:	PHP extension allowing native interaction with systemd and its journal
 Name:		%{php_name}-%{modname}
 Version:	0.1.1
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages/PHP
 Source0:	https://github.com/systemd/php-systemd/archive/release-%{version}/php-%{modname}-%{version}.tar.gz
