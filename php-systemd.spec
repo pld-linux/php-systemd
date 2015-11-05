@@ -6,17 +6,20 @@
 %define		modname		systemd
 Summary:	PHP extension allowing native interaction with systemd and its journal
 Name:		%{php_name}-%{modname}
-Version:	0.1.1
-Release:	3
+Version:	0.1.2
+Release:	1
 License:	BSD
 Group:		Development/Languages/PHP
 Source0:	https://github.com/systemd/php-systemd/archive/release-%{version}/php-%{modname}-%{version}.tar.gz
-# Source0-md5:	59faace93633f40a149fd5b00cc318cf
+# Source0-md5:	78e01f7e17c803008235f22eb4b75a85
 URL:		https://github.com/systemd/php-systemd
-%{?with_tests:BuildRequires:    %{php_name}-cli}
 BuildRequires:	%{php_name}-devel
 BuildRequires:	rpmbuild(macros) >= 1.666
 BuildRequires:	systemd-devel
+%if %{with tests}
+BuildRequires:    %{php_name}-cli
+BuildRequires:    %{php_name}-pcre
+%endif
 %{?requires_php_extension}
 Provides:	php(systemd) = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -43,14 +46,12 @@ grep %{modname} modules.log
 
 export NO_INTERACTION=1 REPORT_EXIT_STATUS=1 MALLOC_CHECK_=2
 %{__make} test \
-	PHP_EXECUTABLE=%{__php}
+	PHP_EXECUTABLE=%{__php} \
+	PHP_TEST_SHARED_SYSTEM_EXTENSIONS="pcre"
 %endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d
-install -d $RPM_BUILD_ROOT{%{php_sysconfdir}/conf.d,%{php_extensiondir}}
-
 %{__make} install \
 	EXTENSION_DIR=%{php_extensiondir} \
 	INSTALL_ROOT=$RPM_BUILD_ROOT
