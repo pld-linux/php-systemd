@@ -1,0 +1,11 @@
+--- php-systemd-0.1.2/config.m4~	2014-03-07 21:05:05.000000000 +0100
++++ php-systemd-0.1.2/config.m4	2017-02-26 01:29:46.751419095 +0100
+@@ -32,7 +32,7 @@
+ 
+   PHP_ADD_INCLUDE($SYSTEMD_DIR/include)
+ 
+-  LIBNAME=systemd-journal
++  LIBNAME=systemd
+   LIBSYMBOL=sd_journal_sendv
+ 
+   if test "x$PHP_LIBDIR" = "x"; then

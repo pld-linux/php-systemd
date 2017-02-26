@@ -7,11 +7,12 @@
 Summary:	PHP extension allowing native interaction with systemd and its journal
 Name:		%{php_name}-%{modname}
 Version:	0.1.2
-Release:	2
+Release:	3
 License:	BSD
 Group:		Development/Languages/PHP
 Source0:	https://github.com/systemd/php-systemd/archive/release-%{version}/php-%{modname}-%{version}.tar.gz
 # Source0-md5:	78e01f7e17c803008235f22eb4b75a85
+Patch0:		libsystemd.patch
 URL:		https://github.com/systemd/php-systemd
 BuildRequires:	%{php_name}-devel
 BuildRequires:	rpmbuild(macros) >= 1.666
@@ -30,6 +31,7 @@ PHP extension allowing native interaction with systemd and journal
 %prep
 %setup -qc
 mv php-%{modname}-*/* .
+%patch0 -p1
 
 %build
 phpize
