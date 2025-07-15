@@ -31,7 +31,7 @@ PHP extension allowing native interaction with systemd and journal
 %prep
 %setup -qc
 mv php-%{modname}-*/* .
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 phpize
